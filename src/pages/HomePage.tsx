@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { CategoryButton } from '../components/CategoryButton';
 import { MovieCard } from '../components/MovieCard';
-import popularImg from '../assets/images/popcorn.png'
-import nowPlayingImg from '../assets/images/seats.jpeg'
+import ratedImg from '../assets/images/cinema.jpeg'
+import upcomingImg from '../assets/images/upcoming.jpeg'
+import latestImg from '../assets/images/movie night.png'
 
-const API_KEY = "c275787762fb2904adb52c4ad6412662";
+
+const API_KEY = "55b0b3b2c2b04df835029d4d57f364b2";
 
 export type Category ={
   id: number;
@@ -14,8 +16,9 @@ export type Category ={
 };
 
 const CATEGORY_LIST = [
-{id: 0, label:'인기영화', url:'/popular', image: popularImg},
-{id: 1, label:'현재 상영작', url:'/now_playing', image: nowPlayingImg},
+{id: 0, label:'영화 순위', url:'/top_rated', image: ratedImg},
+{id: 1, label:'상영 예정작', url:'/upcoming', image: upcomingImg},
+{id: 2, label:'인기 영화', url:'/popular', image: latestImg},
 ];
 
 export type Movie = {
@@ -75,30 +78,6 @@ export const HomePage = () => {
         </div>
       </div>
 
-{/* <div>
-    <div className="text-2xl font-bold mb-4">List</div>  
-      <div className="border p-4 rounded-mb">
-        <div>
-          <img src="https://source.unsplash.com/random"
-          alt=""
-          className="w-full h-60 object-cover rounded-xl"
-          />
-          <div className="mt-4">
-            <div className="text-lg font-semibold">Card title</div>
-            <div className="text-gray-500">
-              This is where your description locate.
-            </div>
-          <div className="mt-4 justify-end flex space-x-3">
-            <div className="bg-gray-800 rounded-md text-white text-center py-2.5 px-4">만들기</div>
-            <div className="bg-gray-800 rounded-md text-white text-center py-2.5 px-4">공유하기</div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<div>
-
-</div> */}
       <div className="text-2xl font-bold mb-4">Today's Special</div>
     
      {!isLoading && movies.map((movie) =>(
